@@ -25,10 +25,8 @@ func main() {
 	for i := 0 ; i < len(s) ; i ++ {
 		t := int(s[i]) - 48
 		k ^= 1 << t
+		res += m[k]
 		m[k] = m[k] + 1
-	}
-	for _ , v := range(m) {
-		res += v * (v - 1) / 2
 	}
 	fmt.Fprint(out, res)
 }
