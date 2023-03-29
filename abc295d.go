@@ -10,9 +10,6 @@ var (
     in = bufio.NewReader(os.Stdin)
 )
 
-func change1(s byte) int {
-	return int(s) - 48
-}
 
 func main() {
     defer out.Flush()
@@ -22,9 +19,8 @@ func main() {
 	k := 0
 	res := 0
 	m[0] = 1
-	for i := 0 ; i < len(s) ; i ++ {
-		t := int(s[i]) - 48
-		k ^= 1 << t
+	for i := 0 ; i < len(s) ; i ++ { 
+		k ^=  1 << (int(s[i]) - 48)
 		res += m[k]
 		m[k] = m[k] + 1
 	}
